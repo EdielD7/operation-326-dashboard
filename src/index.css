@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+/* The Inter and Playfair Display families are loaded via <link> in index.html. */
+
+/* Design tokens extracted from the "Original" Figma file (kFIFPGRPX4luUpfwM6dPLO).
+   The Figma grey scale (#111827 to #f9fafb) matches Tailwind's default `gray`
+   palette exactly, so gray-50 to gray-900 are used directly without redefining. */
+@theme {
+  /* --- Brand -------------------------------------------------------- */
+  --color-brand: #b81d25; /* primary red - dominant colour of the layout */
+  --color-brand-dark: #6b1116; /* hover / pressed */
+  --color-brand-light: #fca5a5; /* soft borders and icons */
+  --color-brand-surface: #fee2e2; /* highlight background / badges */
+
+  /* --- Neutrals outside the Tailwind scale -------------------------- */
+  --color-ink: #2a2a2a; /* text over dark backgrounds */
+  --color-ink-soft: #444444;
+  --color-paper: #fcfcfc; /* off-white background */
+
+  /* --- Typography --------------------------------------------------- */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", ui-serif, Georgia, serif;
+
+  /* Sizes present in the Figma that the default scale does not cover */
+  --text-hero: 3.5rem; /* 56px */
+  --text-display: 2.5rem; /* 40px */
+  --text-title: 2.25rem; /* 36px */
+}
+
+/* Hides the carousel's native scrollbar while keeping scrolling functional. */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Smooth scrolling for the menu's anchor links, disabled for users who have
+   requested reduced motion at the OS level. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
