@@ -35,14 +35,14 @@ const stats = [
  */
 const HOTSPOT_COORDS = {
   'Latin America': { top: '65%', left: '28%' },
-  'West & Central Africa': { top: '55%', left: '48%' },
+  'West & Central Africa': { top: '44%', left: '51%' },
   'North Africa & Middle East': { top: '40%', left: '53%' },
-  'East & Southern Africa': { top: '65%', left: '56%' },
+  'East & Southern Africa': { top: '47%', left: '59%' },
   'Eastern Europe & Eurasia': { top: '20%', left: '60%' },
   'Central Asia': { top: '30%', left: '65%' },
   'South Asia': { top: '45%', left: '70%' },
   'Northeast Asia': { top: '35%', left: '78%' },
-  'Southeast Asia': { top: '55%', left: '80%' },
+  'Southeast Asia': { top: '59%', left: '82%' },
 }
 
 /**

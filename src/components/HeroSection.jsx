@@ -60,7 +60,7 @@ export default function HeroSection({ imageUrl = '/img/hero.webp' }) {
           {/* h-9 matches the header wordmark exactly. Hidden below md, where the
               headline already uses the full width and the logo would crowd it. */}
           <img
-            src="/img/one-chance-logo.png"
+            src="/img/one-chance-logo.svg"
             alt="One Chance"
             className="hidden h-9 w-auto shrink-0 object-contain md:block"
           />
