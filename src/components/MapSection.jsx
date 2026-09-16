@@ -14,12 +14,19 @@ import { peopleGroups, REGIONS, countriesFor } from '../data/peopleGroups'
  */
 
 /**
+ * unreachedGroups filters by status, not just by presence in the dataset: the
+ * 281 records include 73 already "Reached", so a plain peopleGroups.length
+ * would overstate the headline figure by that many (281 vs. the correct 208).
+ */
+const unreachedGroups = peopleGroups.filter((group) => group.status === 'Unreached')
+
+/**
  * The first three figures come from the live dataset (countriesFor() with no
  * argument returns every unique country). The last two remain static: the
  * dataset has no field representing "being researched" or "reports submitted".
  */
 const stats = [
-  { icon: 'unreached', value: peopleGroups.length, label: 'Unreached\nPeople Groups' },
+  { icon: 'unreached', value: unreachedGroups.length, label: 'Unreached\nPeople Groups' },
   { icon: 'regions', value: REGIONS.length, label: 'Regions\nWorldwide' },
   { icon: 'countries', value: countriesFor().length, label: 'Countries\nIdentified' },
   { icon: 'researching', value: '38', label: 'Groups Currently\nBeing Researched' },
@@ -50,10 +57,15 @@ const HOTSPOT_COORDS = {
  * data gains a region without coordinates it is skipped instead of breaking
  * the map.
  */
+/**
+ * Filtered by status here too: the tooltip below reads "{count} Unreached
+ * People Groups", so it must count the same subset as the stats bar rather
+ * than every group in the region regardless of status.
+ */
 const hotspots = REGIONS.filter((region) => HOTSPOT_COORDS[region]).map((region) => ({
   name: region,
   ...HOTSPOT_COORDS[region],
-  count: peopleGroups.filter((group) => group.region === region).length,
+  count: unreachedGroups.filter((group) => group.region === region).length,
 }))
 
 export default function MapSection() {
