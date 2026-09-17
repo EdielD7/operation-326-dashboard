@@ -15,8 +15,8 @@ import { peopleGroups, REGIONS, countriesFor } from '../data/peopleGroups'
 
 /**
  * unreachedGroups filters by status, not just by presence in the dataset: the
- * 281 records include 73 already "Reached", so a plain peopleGroups.length
- * would overstate the headline figure by that many (281 vs. the correct 208).
+ * dataset also includes groups already "Reached", so a plain
+ * peopleGroups.length would overstate the headline figure by that many.
  */
 const unreachedGroups = peopleGroups.filter((group) => group.status === 'Unreached')
 

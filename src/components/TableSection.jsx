@@ -298,9 +298,9 @@ export default function TableSection({ filters, onFilterChange, onClearFilters }
                       </span>
                     </td>
                     <td className="border-b border-gray-100 pr-6">
-                      {/* Without a cardUrl there is no prayer card: a dash takes
-                          the button's place, preserving row height and alignment. */}
-                      {group.cardUrl ? (
+                      {/* Without a prayer card a dash takes the button's place,
+                          preserving row height and alignment. */}
+                      {group.hasPrayerCard ? (
                         // flex instead of text-center: the button (105px) is wider
                         // than its column (78px) and has to overflow symmetrically,
                         // as it does in the Figma (centred at x=764).
