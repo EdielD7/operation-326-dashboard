@@ -14,23 +14,23 @@ import { peopleGroups, REGIONS, countriesFor } from '../data/peopleGroups'
  */
 
 /**
- * unreachedGroups filters by status, not just by presence in the dataset: the
- * dataset also includes groups already "Reached", so a plain
- * peopleGroups.length would overstate the headline figure by that many.
+ * Filtering by status, not just by presence in the dataset: the dataset mixes
+ * both statuses together, so a plain peopleGroups.length would count both.
  */
 const unreachedGroups = peopleGroups.filter((group) => group.status === 'Unreached')
+const reachedGroups = peopleGroups.filter((group) => group.status === 'Reached')
 
 /**
- * The first three figures come from the live dataset (countriesFor() with no
- * argument returns every unique country). The last two remain static: the
- * dataset has no field representing "being researched" or "reports submitted".
+ * All five figures are derived from the live dataset — none are hardcoded.
+ * Ordered as one narrative: scope (Total), the gap (Unreached), the progress
+ * (Reached), then geography (Regions, Countries).
  */
 const stats = [
+  { icon: 'total', value: peopleGroups.length, label: 'Total\nPeople Groups' },
   { icon: 'unreached', value: unreachedGroups.length, label: 'Unreached\nPeople Groups' },
+  { icon: 'reached', value: reachedGroups.length, label: 'Reached\nPeople Groups' },
   { icon: 'regions', value: REGIONS.length, label: 'Regions\nWorldwide' },
   { icon: 'countries', value: countriesFor().length, label: 'Countries\nIdentified' },
-  { icon: 'researching', value: '38', label: 'Groups Currently\nBeing Researched' },
-  { icon: 'reports', value: '87', label: 'Mission Reports\nSubmitted' },
 ]
 
 /**

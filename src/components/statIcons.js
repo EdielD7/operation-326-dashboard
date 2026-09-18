@@ -1,4 +1,4 @@
-import { Users, Globe, MapPin, Search, FileText } from 'lucide-react'
+import { Users, Target, CircleCheckBig, Globe, MapPin } from 'lucide-react'
 
 /**
  * Icons chosen for the five statistics in the Figma's "Stats Bar Section".
@@ -6,9 +6,9 @@ import { Users, Globe, MapPin, Search, FileText } from 'lucide-react'
  * (react-refresh/only-export-components).
  */
 export const statIcons = {
-  unreached: Users, // "Unreached People Groups"
+  total: Users, // "Total People Groups"
+  unreached: Target, // "Unreached People Groups"
+  reached: CircleCheckBig, // "Reached People Groups"
   regions: Globe, // "Regions Worldwide"
   countries: MapPin, // "Countries Identified"
-  researching: Search, // "Groups Currently Being Researched"
-  reports: FileText, // "Mission Reports Submitted"
 }
